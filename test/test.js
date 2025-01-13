@@ -45,8 +45,8 @@ describe("Testing de la App Web Adoptame", () => {
 		});
 
 		it("POST api/adoptions/:uid/:pid debe crear una adopción correctamente", async () => {
-			const userId = "6784a7c33f2c15d9911a6139"; // ID VALIDO DE USER
-			const petId = "6784a7c33f2c15d9911a616d"; // ID VALIDO DE PET
+			const userId = "6784ab63032d695e43cb151a"; // ID VALIDO DE USER
+			const petId = "6784ab63032d695e43cb154b"; // ID VALIDO DE PET
 
 			const { statusCode, body } = await requester.post(`/api/adoptions/${userId}/${petId}`);
 
@@ -56,8 +56,8 @@ describe("Testing de la App Web Adoptame", () => {
 		});
 
 		it("POST api/adoptions/:uid/:pid debe devolver error 404 si el usuario no existe", async () => {
-			const invalidUserId = "6784a7c33f2c15d9911a6199";
-			const petId = "6784a7c33f2c15d9911a616d";
+			const invalidUserId = "6784ab63032d695e43cb1599";
+			const petId = "6784ab63032d695e43cb1599";
 
 			const { statusCode, body } = await requester.post(`/api/adoptions/${invalidUserId}/${petId}`);
 
@@ -67,8 +67,8 @@ describe("Testing de la App Web Adoptame", () => {
 		});
 
 		it("POST api/adoptions/:uid/:pid debe devolver error 404 si la mascota no existe", async () => {
-			const userId = "6784a7c33f2c15d9911a6139";
-			const invalidPetId = "6784a7c33f2c15d9911a611d";
+			const userId = "6784ab63032d695e43cb1511";
+			const invalidPetId = "6784ab63032d695e43cb1985";
 
 			const { statusCode, body } = await requester.post(`/api/adoptions/${userId}/${invalidPetId}`);
 
@@ -78,8 +78,8 @@ describe("Testing de la App Web Adoptame", () => {
 		});
 
 		it("POST api/adoptions/:uid/:pid debe devolver error 400 si la mascota ya está adoptada", async () => {
-			const userId = "6784a7c33f2c15d9911a6139";
-			const adoptedPetId = "6784a7c33f2c15d9911a616d";
+			const userId = "6784ab63032d695e43cb1511";
+			const adoptedPetId = "6784ab63032d695e43cb1543";
 
 			const { statusCode, body } = await requester.post(`/api/adoptions/${userId}/${adoptedPetId}`);
 

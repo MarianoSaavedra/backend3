@@ -11,11 +11,7 @@ mongoose.connect(
 
 before(async () => {
 	await mongoose.connect(
-		`mongodb+srv://marianomsv:coderhouse@cluster0.stq9t.mongodb.net/Adpotme?retryWrites=true&w=majority&appName=Cluster0`,
-		{
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-		}
+		`mongodb+srv://marianomsv:coderhouse@cluster0.stq9t.mongodb.net/Adpotme?retryWrites=true&w=majority&appName=Cluster0`
 	);
 });
 
